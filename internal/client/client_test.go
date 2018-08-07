@@ -28,7 +28,7 @@ func (m *MockGitlabClient) ProjectPipelines(projectId string, opts *gitlab.Pipel
 func (suite *ClientTestSuite) TestCreateClient() {
 	assert := assert.New(suite.T())
 	fakeClient := new(MockGitlabClient)
-	c, err := client.New(fakeClient)
+	c, err := client.New(fakeClient, "", "")
 
 	assert.Nil(err, "Got error: %v", err)
 	assert.NotNil(c, "Client is Nil")
@@ -37,7 +37,7 @@ func (suite *ClientTestSuite) TestCreateClient() {
 func (suite *ClientTestSuite) TestListPipelines() {
 	assert := assert.New(suite.T())
 	fakeClient := new(MockGitlabClient)
-	c, err := client.New(fakeClient)
+	c, err := client.New(fakeClient, "", "")
 
 	testPipeline := &gitlab.Pipeline{
 		Id: 1027,
@@ -59,7 +59,7 @@ func (suite *ClientTestSuite) TestListPipelines() {
 func (suite *ClientTestSuite) TestIndexOfPipeline() {
 	assert := assert.New(suite.T())
 	fakeClient := new(MockGitlabClient)
-	c, _ := client.New(fakeClient)
+	c, _ := client.New(fakeClient, "", "")
 
 	testCollection := &gitlab.PipelineCollection{
 		Items: []*gitlab.Pipeline{
@@ -87,7 +87,7 @@ func (suite *ClientTestSuite) TestIndexOfPipeline() {
 func (suite *ClientTestSuite) TestDetermineIfFirst() {
 	assert := assert.New(suite.T())
 	fakeClient := new(MockGitlabClient)
-	c, _ := client.New(fakeClient)
+	c, _ := client.New(fakeClient, "", "")
 
 	testCollection := &gitlab.PipelineCollection{
 		Items: []*gitlab.Pipeline{

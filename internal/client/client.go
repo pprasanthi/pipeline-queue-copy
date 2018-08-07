@@ -2,7 +2,6 @@ package client
 
 import (
 	"fmt"
-	"os"
 	"strconv"
 
 	"github.com/plouc/go-gitlab-client/gitlab"
@@ -71,16 +70,13 @@ func (c *Client) DetermineIfFirst(projectID string, pipelineID string) (bool, er
 }
 
 // New ...
-func New(desiredClient GitLabClient) (*Client, error) {
-	host := os.Getenv("HOST")
-	token := os.Getenv("TOKEN")
-
+func New(desiredClient GitLabClient, hostname string, token string) (*Client, error) {
 	var gitlabClient GitLabClient
 
 	if desiredClient != nil {
 		gitlabClient = desiredClient
 	} else {
-		gitlabClient = gitlab.NewGitlab(host, "/api/v4", token)
+		gitlabClient = gitlab.NewGitlab(hostname, "/api/v4", token)
 	}
 
 	return &Client{

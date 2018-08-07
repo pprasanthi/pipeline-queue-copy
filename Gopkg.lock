@@ -14,6 +14,12 @@
   revision = "53e6ce116135b80d037921a7fdd5138cf32d7a8a"
 
 [[projects]]
+  name = "github.com/inconshreveable/mousetrap"
+  packages = ["."]
+  revision = "76626ae9c91c4f2a10f34cad8ce83ea42c93bb75"
+  version = "v1.0"
+
+[[projects]]
   name = "github.com/plouc/go-gitlab-client"
   packages = ["gitlab"]
   revision = "658c0ef2a68fc413e92bbd6d33f7c3e59667dd97"
@@ -24,6 +30,18 @@
   packages = ["difflib"]
   revision = "792786c7400a136282c1664665ae0a8db921c6c2"
   version = "v1.0.0"
+
+[[projects]]
+  name = "github.com/spf13/cobra"
+  packages = ["."]
+  revision = "ef82de70bb3f60c65fb8eebacbb2d122ef517385"
+  version = "v0.0.3"
+
+[[projects]]
+  name = "github.com/spf13/pflag"
+  packages = ["."]
+  revision = "583c0c0531f06d5278b7d917446061adc344b5cd"
+  version = "v1.0.1"
 
 [[projects]]
   name = "github.com/stretchr/objx"
@@ -51,6 +69,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "036b7a97dd33c4898292e2461f94e11a44ae5c239ac950cc9e8b09f9a5233359"
+  inputs-digest = "ed9d759ac79099f318b3d6eed0c661f99a1a63b97bc08a1a9d3de6a3bd85f978"
   solver-name = "gps-cdcl"
   solver-version = 1
