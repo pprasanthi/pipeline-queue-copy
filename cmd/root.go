@@ -78,7 +78,7 @@ func init() {
 
 	rootCmd.PersistentFlags().StringVarP(&AccessToken, "token", "t", os.Getenv("CI_JOB_TOKEN"), "API access token. Defaults to $CI_JOB_TOKEN")
 	rootCmd.PersistentFlags().StringVarP(&Hostname, "hostname", "n", "https://gitlab.com", "Hostname of the Gitlab instance. Defaults to https://gitlab.com")
-	rootCmd.PersistentFlags().DurationVarP(&Interval, "interval-time", "it", 30*time.Second, "Amount of time to wait in-between polls in time.Duration format. Default is 30s")
+	rootCmd.PersistentFlags().DurationVarP(&Interval, "interval-time", "i", 30*time.Second, "Amount of time to wait in-between polls in time.Duration format. Default is 30s")
 	rootCmd.PersistentFlags().IntVarP(&ProjectID, "project", "j", defaultProjectID, "Project ID of the pipeline to run in. Defaults to $CI_PROJECT_ID")
 	rootCmd.PersistentFlags().IntVarP(&PipelineID, "pipeline", "l", defaultPipelineID, "Pipeline ID of the current pipeline. Defaults to $CI_PIPELINE_ID")
 }
