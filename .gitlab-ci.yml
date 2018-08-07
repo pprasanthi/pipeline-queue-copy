@@ -6,14 +6,24 @@ variables:
 services:
 - docker:dind
 
-before_script:
-- docker info
-- apk add make
-
 stages:
 - build
 
+build_binary:
+  image: golang:1.10
+  stage: build
+  script:
+  - make gitlab-init
+  - cd /go/src/gitlab.com/fenrirunbound/pipeline-queue && make install vendor build
+  - make gitlab-archive
+  artifacts:
+    paths:
+    - artifacts
+
 build_image:
   stage: build
+  before_script:
+  - docker info
+  - apk add make
   script:
   - make docker
