@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "🤖 Attempting to login"
-echo ${DOCKER_TOKEN} | docker login --username "${DOCKER_USER}" --password-stdin
+echo "${DOCKER_TOKEN}" | docker login --username "${DOCKER_USER}" --password-stdin registry.hub.docker.com
 
 IMAGE_NAME="$1"
 
