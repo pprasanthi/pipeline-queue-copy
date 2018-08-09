@@ -11,7 +11,7 @@ export FLAGS = $(shell echo "\
         -X gitlab.com/fenrirunbound/pipeline-queue/internal.buildHash=$(COMMIT_HASH) \
         -X gitlab.com/fenrirunbound/pipeline-queue/internal.buildUser=$(USER) \
         -X gitlab.com/fenrirunbound/pipeline-queue/internal.buildVersion=$(VERSION)")
-export SRC = "/go/src/gitlab.com/fenrirunbound/pipeline-queue"
+export SRC=/go/src/gitlab.com/fenrirunbound/pipeline-queue
 
 clean:
 	rm -rf target vendor
