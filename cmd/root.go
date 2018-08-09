@@ -35,7 +35,7 @@ func errorExit(err error) {
 
 func timedPrint(message string) {
 	now := time.Now()
-	fmt.Printf("[%v] %v", now.Format(time.RFC3339), message)
+	fmt.Printf("[%v] %v\n", now.Format(time.RFC3339), message)
 }
 
 func waitItOut(duration time.Duration) {
