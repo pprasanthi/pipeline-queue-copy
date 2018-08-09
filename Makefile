@@ -1,4 +1,4 @@
-MAJOR_MINOR = 0.1
+MAJOR_MINOR = 0.2
 BUILD = $(shell  date -u "+%Y%m%d-%H%M%S")
 COMMIT_HASH = $(shell git rev-parse --short HEAD 2>/dev/null || echo nocommitinfo)
 
@@ -33,8 +33,15 @@ install:
 vendor:
 	dep ensure
 
+docker-build:
+	docker build --target Builder -t slikshooz/pipeline-queue .
+
 docker:
-	docker build --target Builder -t pipeline-queue .
+	docker build -t slikshooz/pipeline-queue .
+	docker tag slikshooz/pipeline-queue:latest slikshooz/pipeline-queue:$(MAJOR_MINOR)
+
+docker-publish: docker
+	@./cicd/docker_publish.sh slikshooz/pipeline-queue
 
 test:
 	go test -v ./...

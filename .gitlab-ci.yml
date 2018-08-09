@@ -8,6 +8,7 @@ services:
 
 stages:
 - build
+- publish
 
 build_binary:
   image: golang:1.10
@@ -27,3 +28,13 @@ build_image:
   - apk add make
   script:
   - make docker
+
+publish_image:
+  stage: publish
+  before_script:
+  - apk add make
+  script:
+  - make docker-publish
+  only:
+    refs:
+    - master@fenrirunbound/pipeline-queue
