@@ -1,7 +1,7 @@
 # pipeline-queue
 
 A naive solution to ensuring a singleton pipeline queue for GitLab pipelines.
-
+EADME
 ## Usage
 
 ```
