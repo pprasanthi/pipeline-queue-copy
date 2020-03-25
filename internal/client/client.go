@@ -33,6 +33,7 @@ func (c *Client) ListRunningPipelines(projectID string) ([]*gitlab.PipelineWithD
 		},
 	}
 
+	fmt.Println("in Listing pipeline")
 	pipelines, _, err := c.Client.ProjectPipelines(projectID, options)
 	if err != nil {
 		fmt.Printf("Error: %v", err)
